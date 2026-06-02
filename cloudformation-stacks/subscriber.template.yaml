@@ -24,7 +24,12 @@ Parameters:
     Default: "" # all
   CloudWatchLogGroupPrefix:
     Type: String
-    Description: The Prefix of CloudWatch log groups to subscribe to.
+    Description: >-
+      Prefix matched against the full CloudWatch log group name (matched with
+      "starts with"). AWS log group names begin with a leading slash, so include
+      it: e.g. "/aws/lambda/" matches all Lambda log groups, "/aws/lambda/my-fn"
+      matches one function. Only applies when no log group names or pattern are
+      set. Leave empty to subscribe to all log groups.
     Default: "" # all
   CloudWatchLogGroupPattern:
     Type: String
