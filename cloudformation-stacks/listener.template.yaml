@@ -6,7 +6,11 @@ Parameters:
     AllowedPattern: ".+" # required
   CloudWatchLogGroupsPrefix:
     Type: String
-    Description: The prefix of the CloudWatch log groups that will trigger the Axiom CloudWatch Forwarder Lambda.
+    Description: >-
+      Prefix matched against the full CloudWatch log group name (matched with
+      "starts with"). AWS log group names begin with a leading slash, so include
+      it: e.g. "/aws/lambda/" matches all Lambda log groups, "/aws/lambda/my-fn"
+      matches one function. Leave empty to match all log groups.
     Default: "" # all
   AxiomLambdaLogRetention:
     Type: "Number"
